@@ -57,7 +57,8 @@ class MenuAppBar extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Hejt
             </Typography>
-            <TemporaryDrawer />
+            <TemporaryDrawer change={this.props.change}/>
+            
             {auth && (
               <div>
                 

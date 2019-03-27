@@ -46,8 +46,9 @@ class TemporaryDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-         <ListItem button key='1'>Plansza1</ListItem>
-         <ListItem button key='2'>Plansza2</ListItem>
+         <ListItem button key='1' onClick={()=>this.props.change('2')}>Plansza1</ListItem>
+         <ListItem button key='2' onClick={()=>this.props.change('3')}>Plansza2</ListItem>
+         <ListItem button key='2' onClick={()=>this.props.change('4')}>Video1</ListItem>
         </List>
         <Divider />
         <List>

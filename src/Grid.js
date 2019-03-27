@@ -30,7 +30,10 @@ const styles = theme => ({
   },
 });
 
-function CenteredGrid(props) {
+
+
+
+function CenteredGridA(props) {
   const { classes } = props;
 
   return (
@@ -44,7 +47,10 @@ function CenteredGrid(props) {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-          <img src={require('./media/hejt_plansze1_2.png')} alt="plansza1" width="690" height="460" />
+          <img style={{display:props.ImgStatus}} src={require('./media/hejt_'+props.source+'.png')} alt="plansza1" width="690" height="460" />
+          <video style={{display:props.VideoStatus}} autoplay="" loop="" data-reactid=".0.1.0.0" width="690" height="460" controls >
+             <source type="video/mp4" data-reactid=".0.1.0.0.0" src={require('./media/fragm_'+props.VideoSource+'.mov')}  />
+           </video>
           </Paper>
         </Grid>
         <Grid item xs={3}>
@@ -55,12 +61,12 @@ function CenteredGrid(props) {
         </Grid>
         <Grid item xs={3}>
           <div>
-          <BottomNavigationAction label="Left" icon={<ChevronLeftIcon style={{color:'teal'}} />} />
+          <BottomNavigationAction onClick={()=>props.changePrevious()} label="Left" icon={<ChevronLeftIcon style={{color:'teal'}} />} />
           </div>
         </Grid>
         <Grid item xs={3}>
           <div>
-          <BottomNavigationAction label="Right" icon={<ChevronRightIcon style={{color:'teal'}}/>} />
+          <BottomNavigationAction onClick={()=>props.changeNext()} label="Right" icon={<ChevronRightIcon style={{color:'teal'}}/>} />
           </div>
         </Grid>
         <Grid item xs={3}>
@@ -71,8 +77,8 @@ function CenteredGrid(props) {
   );
 }
 
-CenteredGrid.propTypes = {
+CenteredGridA.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CenteredGrid);
+export default withStyles(styles)(CenteredGridA);
